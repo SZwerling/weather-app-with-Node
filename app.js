@@ -9,9 +9,13 @@ const forecast = require('./utils/forecast');
 //only geocode if a location was provided
 //test work with a couple of locations
 
+const location = process.argv[2]
 
 
-geocode('Los Angeles', (error, data) => {
+geocode(location, (error, data) => {
+    if(!location){
+      return console.log('Please supply a valid location.')
+    }
     if(error){
       return console.log(error)
     }
